@@ -1,0 +1,18 @@
+@mixin transformAnimation($property, $time: .5s) {
+	transition: $property $time cubic-bezier(0, 1, .5, 1);
+}
+
+@mixin opacityAnimation() {
+	transition: opacity .3s ease-in;
+}
+
+@mixin visibilityAnimation() {
+	transition: visibility .3s ease-in;
+}
+
+@mixin loadingAnimation() {
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
+
+}

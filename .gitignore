@@ -1,0 +1,13 @@
+# Ignore directory settings by osx.
+.DS_Store
+
+# Ignore thumbnails created by windows.
+Thumbs.db
+
+node_modules/
+dist/
+typings
+jsconfig.json
+typings.json
+.vscode
+fonts

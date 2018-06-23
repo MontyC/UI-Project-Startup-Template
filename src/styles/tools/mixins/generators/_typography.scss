@@ -1,0 +1,11 @@
+/// Generates font classes based on provided Map
+/// @param {Map} $font-map - font map used to generate classes
+@mixin generate-font-classes($font-map) {
+	// Loop through each font in the map and generate a class
+	// with only the font definition.
+	@each $font, $definition in $font-map {
+		@include font($font) {
+			font: $definition;
+		}
+	}
+}
