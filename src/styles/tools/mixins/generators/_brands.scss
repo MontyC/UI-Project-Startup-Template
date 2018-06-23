@@ -1,0 +1,6 @@
+
+@mixin wyd {
+    @if $wyd == 'true' {
+        @content;
+    }
+}

@@ -1,0 +1,194 @@
+////
+/// State Helper Mixins
+/// Useful for applying styles with JS applied states, separate from BEM modifiers.
+/// @group tools
+////
+
+/// Create an "is-" state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include is(switched-on) {
+///             background: yellow;
+///         }
+///     }
+///
+///     .my-class {
+///         @include is(switched-on, false) {
+///             background: red;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class.is-switched-on {
+///   background: yellow;
+/// }
+///
+/// .my-class .is-switched-on {
+///   background: red;
+/// }
+/// ```
+/// @param {String} $state - State name
+/// @param {Bool} $bind [true] - Bind state to parent
+@mixin is($state, $bind: true) {
+	$selector: &;
+
+	@if $bind and $selector == null {
+		@warn 'is(#{$state}) should be nested within a selector.'
+	}
+
+	@if $bind {
+		&.is-#{$state} {
+			@content
+		}
+	} @else {
+		.is-#{$state} & {
+			@content
+		}
+	}
+}
+
+/// Create an ":not(is-..." state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include is-not(switched-on) {
+///             background: yellow;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class:not(.is-switched-on) {
+///   background: yellow;
+/// }
+/// ```
+/// @param {String} $state - State name
+@mixin is-not($state) {
+	&:not(.is-#{$state}) {
+		@content
+	}
+}
+
+/// Create a "has-" state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include has(things) {
+///             background: yellow;
+///         }
+///     }
+///
+///     .my-class {
+///         @include has(things, false) {
+///             background: red;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class.has-things {
+///   background: yellow;
+/// }
+///
+/// .my-class .has-things {
+///   background: red;
+/// }
+/// ```
+/// @param {String} $state - State name
+/// @param {Bool} $bind [true] - Bind state to parent
+@mixin has($state, $bind: true) {
+	$selector: &;
+
+	@if $bind and $selector == null {
+		@warn 'has(#{$state}) should be nested within a selector.'
+	}
+
+	&.has-#{$state} {
+		@content
+	}
+}
+
+/// Create a ":not(.has-..." state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include has-not(things) {
+///             background: yellow;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class:not(.has-things) {
+///   background: yellow;
+/// }
+/// ```
+/// @param {String} $state - State name
+@mixin has-not($state) {
+	&:not(.has-#{$state}) {
+		@content
+	}
+}
+
+/// Create a "will-" state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include will(things) {
+///             background: yellow;
+///         }
+///     }
+///
+///     .my-class {
+///         @include will(things, false) {
+///             background: red;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class.will-things {
+///   background: yellow;
+/// }
+///
+/// .my-class .will-things {
+///   background: red;
+/// }
+/// ```
+/// @param {String} $state - State name
+/// @param {Bool} $bind [true] - Bind state to parent
+@mixin will($state, $bind: true) {
+	$selector: &;
+
+	@if $bind and $selector == null {
+		@warn 'has(#{$state}) should be nested within a selector.'
+	}
+
+	&.will-#{$state} {
+		@content
+	}
+}
+
+/// Create a ":not(.will-..." state from a string
+/// @access public
+/// @example
+///     .my-class {
+///         @include will-not(things) {
+///             background: yellow;
+///         }
+///     }
+///
+/// @output
+/// ```css
+/// .my-class:not(.will-things) {
+///   background: yellow;
+/// }
+/// ```
+/// @param {String} $state - State name
+@mixin will-not($state) {
+	&:not(.has-#{$state}) {
+		@content
+	}
+}

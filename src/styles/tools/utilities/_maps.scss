@@ -1,0 +1,48 @@
+@import 'sassy-maps/map-to-string';
+@import 'sassy-maps/map-get';
+@import 'sassy-maps/map-set';
+
+/// Map Merge Deep
+/// Given two maps, combine their values into a single map.
+/// @source https://github.com/Undistraction/Sassy-Maps/blob/b2327bc3273a15690685f069f82ab0656abea05c/sass/sassy-maps/map-merge.scss
+/// @param {Map} $map1 - The original map
+/// @param {Map} $map2 - The map with the values to add to $map1
+/// @param {Boolean} $overwrite [true] - Should conflicting values in $map1 be overwritten by values in $map2
+/// @returns {Map} - The merged map
+@function map-merge-deep($map1, $map2, $overwrite: true) {
+	// Iterate through each value of the new map
+	@each $key, $new-value in $map2 {
+		// Check if that value already exists on the old map
+		@if map-has-key($map1, $key) {
+			// There is an existing key
+			$old-value: map-get($map1, $key);
+
+			@if type-of($new-value) == map and type-of($old-value) == map {
+				// If both are maps, recurse regardless of $overwrite
+				$merged-value: map-merge-deep($old-value, $new-value);
+				$map1: map-set($map1, $key, $merged-value);
+			} @else {
+				// Otherwise check $overwrite
+				@if $overwrite {
+					$map1: map-set($map1, $key, $new-value);
+				}
+			}
+		} @else {
+			// There is no existing key so add
+			$map1: map-set($map1, $key, $new-value);
+		}
+	}
+
+	@return $map1;
+}
+
+/// Returns the key before the given key in a map
+/// @param {Map} $map - The map to search
+/// @param {String} $key - The key to search for
+/// @returns {String} - The key before the searched key
+@function map-get-key-before($map, $key) {
+	$keys: map-keys($map);
+	$key-index: index($keys, $key);
+
+	@return nth($keys, $key-index - 1);
+}

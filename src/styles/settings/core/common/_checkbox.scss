@@ -1,0 +1,77 @@
+@mixin checkbox {
+
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+    width: auto;
+    z-index: 2;
+
+    & + label {
+        position: relative;
+        padding: 0;
+        z-index: 1;
+    }
+
+    // Box.
+    & + label:before {
+        content: '';
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 25px;
+        height: 25px;
+        border: 2px solid colour-get(border);
+        background: colour-get(secondary);
+        vertical-align: middle;
+
+        .form__input-group--error &{
+            border: 2px solid colour-get(error);
+        }
+    }
+
+    // Box hover
+    &:hover + label:before {
+
+    }
+    
+    // Box focus
+    &:focus + label:before {
+   
+    }
+
+    // Box checked
+    &:checked + label:before {
+        background: colour-get(primary);
+        border: none;
+    }
+        
+    // Disabled state label.
+    &:disabled + label {
+        cursor: auto;
+    }
+
+    // Disabled box.
+    &:disabled + label:before {
+        box-shadow: none;
+        background: colour-get(light-grey);
+    }
+
+    // Checkmark. Could be replaced with an image
+    &:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 9px;
+        background: colour-get(secondary);
+        width: 4px;
+        height: 4px;
+        box-shadow: 
+        2px 0 0 colour-get(secondary),
+        4px 0 0 colour-get(secondary),
+        4px -2px 0 colour-get(secondary),
+        4px -4px 0 colour-get(secondary),
+        4px -6px 0 colour-get(secondary),
+        4px -8px 0 colour-get(secondary);
+        transform: rotate(45deg);
+    }
+
+}

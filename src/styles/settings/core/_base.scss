@@ -1,0 +1,36 @@
+// Base styles
+html {
+	box-sizing: border-box;
+	height: 100%;
+	line-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	position: relative;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+
+	img {
+		border: none;
+	} 
+}
