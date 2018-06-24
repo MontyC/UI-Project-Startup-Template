@@ -16,3 +16,16 @@
 	width: 100px;
 
 }
+
+@keyframes border-bottom {
+    0%   {border-bottom-width: 0;}
+    25%  {border-bottom-width: 3;}
+    50%  {border-bottom-width: 6;}
+    100% {border-bottom-width: 4;;}
+}
+
+div {
+
+    animation-name: border-bottom;
+    animation-duration: .5s;
+}

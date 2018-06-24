@@ -1,8 +1,7 @@
 @import 'tools/index';
 @import 'settings/index';
+@import 'sections';
+@import 'base';
 
 @import '../templates/components/index';
 
-body {
-    background-color: red;
-}
