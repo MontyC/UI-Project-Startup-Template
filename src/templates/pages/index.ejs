@@ -5,10 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= htmlWebpackPlugin.options.title %></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/src/scripts/components/fullpage/jquery.fullpage.js"></script>
+    <link rel="stylesheet" href="../styles/settings/vendor/font-awesome/font-awesome.css">
+	<script type="text/javascript" src="/src/scripts/components/fullpage/examples.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#1087C3', '#FFFCF9', '#ececec', '#FFFCF9 ', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', 'otherstuff', '3rdPage', '4thpage', 'lastPage'],
+				menu: '#menu',
+				scrollingSpeed: 1000
+			});
+
+		});
+	</script>
 </head>
 
 <body>
-
+    <%- include ../components/menu/menu.ejs %> 
+    <%- include ../components/fullpage/fullpage.ejs %> 
 </body>
 
 </html>
