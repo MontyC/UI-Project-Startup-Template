@@ -1,9 +1,5 @@
 /* Reset CSS
  * --------------------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i,900');
-
-
 
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
@@ -55,7 +51,7 @@ abbr,acronym { border: 0;
 /* Custom CSS
  * --------------------------------------- */
 body{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'merriweatherregular';
 	color: #000;
 
 }
@@ -80,7 +76,6 @@ body, .article {
   font-size: 1em;
   line-height: 1.72222222em;
   margin: auto;
-font-family: 'Roboto', sans-serif;
 color: #000;
 
 }
@@ -89,7 +84,7 @@ h1, .h1 {
   line-height: 1.04201681em;
   margin-top: 0.2605042em;
   margin-bottom: 0.5210084em;
-font-family: 'Bree Serif', serif;
+font-family: 'merriweather_sansextrabold';
 }
 h2, .h2 {
   font-size: 3.5em;
@@ -329,15 +324,19 @@ div {
 /* Demos Menu
  * --------------------------------------- */
 
-.profile {
-	background:  transparent url('../images/me.jpg') no-repeat center center;
-	background-size: 100% auto;
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	margin: 0 auto;
-	border: solid 5px #fff;
-	box-shadow: 1px 1px 10px rgba(0,0,0,0.2)
+@include block(profile) {
+	margin-right: 40px;
+
+   @include element(image) {
+			background:  transparent url('../images/me.jpg') no-repeat center center;
+			background-size: 100% auto;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			margin-right: 40px;
+			border: solid 5px #fff;
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.2)
+	 }
 }
 
  #demosMenu{
@@ -348,11 +347,11 @@ div {
  }
 
 #section0 {
-	background: transparent url('../images/bg-01.jpg') no-repeat center center;
+
 }
 
 #section0 h1 {
-color: #00171F;
+color: $blue;
 }
 
 #section0 p {

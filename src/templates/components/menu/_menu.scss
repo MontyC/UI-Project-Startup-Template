@@ -27,18 +27,18 @@
         }
     
         &.active {
-            border-bottom: solid 4px #10b6e6;
+            border-bottom: solid 4px $blue;
             animation-name: border;
             animation-duration: .3s; 
 
             &:hover {
-                border-bottom: solid 4px #10b6e6;
+                border-bottom: solid 4px $blue;
             }
 
             a {
                 padding: 12px 0 15px 0;
                 display:block;
-                color: #10b6e6;
+                color: $blue;
 
                 &:hover {
                     color: #000; 
