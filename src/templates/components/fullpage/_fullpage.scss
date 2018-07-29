@@ -73,10 +73,10 @@ html, .root {
   line-height: 31px;
 }
 body, .article {
-  font-size: 1em;
+  font-size: .9em;
   line-height: 1.72222222em;
   margin: auto;
-color: #000;
+	color: #000;
 
 }
 h1, .h1 {
@@ -326,6 +326,7 @@ div {
 
 @include block(profile) {
 	margin-right: 40px;
+	display: flex;
 
    @include element(image) {
 			background:  transparent url('../images/me.jpg') no-repeat center center;
@@ -335,7 +336,31 @@ div {
 			border-radius: 50%;
 			margin-right: 40px;
 			border: solid 5px #fff;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.2)
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+			min-width: 122px;
+	 }
+
+	 @include element(skills) {
+		 min-width: 320px;
+		 margin-left: 40px;
+		 padding-left: 30px;
+		 border-left: solid 1px #000;
+
+		 ul {
+
+			 li {
+				display: inline-block;
+				background-color: $blue;
+				color: #fff;
+				padding: 0 5px;
+				margin: 1px;
+				float: left;
+
+				&:nth-child(1) {
+					font-weight: 18px;
+				}
+			 }
+		 }
 	 }
 }
 

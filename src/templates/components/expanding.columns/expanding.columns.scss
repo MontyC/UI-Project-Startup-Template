@@ -1,8 +1,8 @@
-$color1: #244F75;
-$color2: #60BFBF;
-$color3: #8C4B7E;
-$color4: #F8BB44;
-$color5: #F24B4B;
+$color1: #fff;
+$color2: #ffff;
+$color3: #fff;
+$color4: #fff;
+$color5: #ffff;
 
 @mixin easeOut {
   transition: all .6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -145,6 +145,8 @@ $color5: #F24B4B;
     width: 100%;
     height: 100%;
     text-decoration: none;
+    margin-top: 120px;
+    border-right: 1px solid #000;
 
     &:hover {
       &:before {
