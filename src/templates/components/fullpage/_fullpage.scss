@@ -37,7 +37,8 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 100%;
     margin:0;
     padding:0;
-    color:#00171F ;
+	color:#00171F ;
+	letter-spacing: -5px;
 }
 
 
@@ -153,6 +154,12 @@ a:hover {
 .section-1024 {
 	max-width: 1280px;
 	margin: 0 auto;
+
+	background-image: url('/../images/my-vector-art.svg');
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 40%;
+	
 }
 
 @media (max-width: 760px) {
@@ -327,6 +334,7 @@ div {
 @include block(profile) {
 	margin-right: 40px;
 	display: flex;
+	padding-bottom: 120px;
 
    @include element(image) {
 			background:  transparent url('../images/me.jpg') no-repeat center center;
@@ -340,17 +348,20 @@ div {
 			min-width: 122px;
 	 }
 
+	 @include element(info) {
+		 padding-right: 50px;
+	 }
+
 	 @include element(skills) {
-		 min-width: 320px;
+		 min-width: 420px;
 		 margin-left: 40px;
-		 padding-left: 30px;
-		 border-left: solid 1px #000;
+	
 
 		 ul {
 
 			 li {
 				display: inline-block;
-				background-color: $blue;
+				background-color: $black;
 				color: #fff;
 				padding: 0 5px;
 				margin: 1px;

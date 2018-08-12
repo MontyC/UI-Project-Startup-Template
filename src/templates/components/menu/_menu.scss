@@ -5,8 +5,10 @@
 	padding: 0;
 	margin:0;
 	width: 100%;
-	height: 40px;
-	text-align: center;
+    text-align: center;
+    height: 60px;
+    background-color: rgba(0,0,0,0.75);
+    padding-bottom: 15px;
 
     li {
         display:inline-block;
@@ -16,14 +18,14 @@
 
         a {
             text-decoration:none;
-            color: #000;
+            color: $white;
             padding: 20px 0 15px 0;
             display:block;
             font-size: 1.2em;
         }
 
         &:hover {
-            border-bottom: solid 1px #000;
+            border-bottom: solid 1px $white;
         }
     
         &.active {
@@ -41,10 +43,11 @@
                 color: $blue;
 
                 &:hover {
-                    color: #000; 
+                    color: $blue-hover;
                 }
             }
         }
 
     }
 }
+
